@@ -1,13 +1,11 @@
-body{
-    /* background: royalblue; */
-    
-}
+ 
+
 img{
     height: 10rem;
     width: 15rem;
     margin:0;
 }
 
-#color{
-    background: rgb(209, 0, 0);
+.test{
+    background-color: green;
 }
