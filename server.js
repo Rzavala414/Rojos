@@ -18,7 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Express Handlebars
-app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.engine('.hbs', exphbs({
+    extname: '.hbs',
+    defaultLayout: 'main'
+}));
 app.set('view engine', '.hbs');
 
 //Routes
