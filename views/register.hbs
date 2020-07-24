@@ -6,15 +6,7 @@
         </h1>
         <form action="/users/register" method="POST">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="name"
-              id="name"
-              name="name"
-              class="form-control"
-              placeholder="Enter Name"
-              value="<%= typeof name != 'undefined' ? name : '' %>"
-            />
+            
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -24,7 +16,7 @@
               name="email"
               class="form-control"
               placeholder="Enter Email"
-              value="<%= typeof email != 'undefined' ? email : '' %>"
+              value=""
             />
           </div>
           <div class="form-group">
@@ -35,7 +27,7 @@
               name="password"
               class="form-control"
               placeholder="Create Password"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
+              value=""
             />
           </div>
           <div class="form-group">
@@ -46,14 +38,14 @@
               name="password2"
               class="form-control"
               placeholder="Confirm Password"
-              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              value=""
             />
           </div>
           <button type="submit" class="btn btn-primary btn-block">
             Register
           </button>
         </form>
-        <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+        <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
       </div>
     </div>
   </div>
