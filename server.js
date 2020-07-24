@@ -24,5 +24,4 @@ app.set('view engine', '.hbs');
 //Routes
 app.use('/', router)
 
-
 app.listen(PORT, () => console.log(`app listening on http://localhost:${PORT}`));
