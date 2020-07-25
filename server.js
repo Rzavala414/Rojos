@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('./routes/router');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const connectDB = require('./config/database');
 const path = require('path')
 const app = express();
@@ -23,6 +24,12 @@ app.engine('.hbs', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', '.hbs');
+
+//Express json parser
+express.json();
+express.urlencoded({extended: false});
+
+app.use(methodOverride('_method'))
 
 //Routes
 app.use('/', router)
