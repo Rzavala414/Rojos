@@ -25,9 +25,9 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
-//Express json parser
-express.json();
-express.urlencoded({extended: false});
+//Body parser
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
 
 app.use(methodOverride('_method'))
 
