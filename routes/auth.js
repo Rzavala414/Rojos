@@ -26,7 +26,7 @@ userRouter.post('/register', async(req, res) => {
         })
 
         bcrypt.genSalt(10, () => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
+            bcrypt.hash(newUser.password, 10, (err, hash) => {
                 if(err) throw err;
                 //Set password to hashed
                 newUser.password = hash;
