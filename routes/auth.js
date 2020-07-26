@@ -15,16 +15,19 @@ userRouter.post('/register', async(req, res) => {
         res.redirect('register');
     }
 
+    // checking if passwords match
     if(password !== password2){
         res.redirect('register')
     }
 
     try {
+        // creating new user
         const newUser = await User.create({
             email,
             password
         })
 
+        // Hashing password
         bcrypt.genSalt(10, () => {
             bcrypt.hash(newUser.password, 10, (err, hash) => {
                 if(err) throw err;
