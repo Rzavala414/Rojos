@@ -6,6 +6,7 @@ const session = require('express-session')
 const methodOverride = require('method-override');
 const connectDB = require('./config/database');
 const path = require('path')
+const morgan = require('morgan')
 const app = express();
 
 const PORT = process.env.PORT || 8080;
@@ -47,6 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(methodOverride('_method'))
+app.use(morgan('dev'));
 
 //Routes
 app.use('/', router)

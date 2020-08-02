@@ -11,6 +11,7 @@ module.exports = function(passport){
             //Match User
             User.findOne({ email: email})
                 .then(user => {
+                    // console.log(user)
                     if(!user){
                         return done(null, false, {message: 'That Email is not registered'})
                     }

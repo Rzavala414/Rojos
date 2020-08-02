@@ -13,9 +13,10 @@ router.get('/login', (req, res) => {
 
 //Login Handle
 router.post('/login', (req, res, next) => {
+    console.log(req.body)
     passport.authenticate('local', {
-      successRedirect: '/events',
-      failureRedirect: '/login'
+      successRedirect: '/',
+      failureRedirect: '/events'
     })(req, res, next);
 });
 
