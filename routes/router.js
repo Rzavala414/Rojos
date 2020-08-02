@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const userRouter = require('./auth');
+const eventsRouter = require('./events')
 const passport = require('passport');
+router.use('/events', eventsRouter)
 router.use('/', userRouter);
 
 router.get('/', (req, res) => {
@@ -20,8 +22,5 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
-router.get('/events', (req, res) => {
-    res.send('Im the events page')
-})
 
 module.exports = router;
