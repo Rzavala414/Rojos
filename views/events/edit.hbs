@@ -1,24 +1,20 @@
+<div class="container">
+
 <h3>Edit Event</h3>
-<div class="row">
-    <form action="/stories/{{story._id}}" method="POST" class="col s12">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="title" name="title" value="{{story.title}}">
-                <label for="title">Add Event Date</label>
-            </div>
-        </div>
+<form action='/events' method='POST'>
+  <div class="form-group">
+    <h5>Event Date</h5>
+    <input type="text" class="form-control" id="exampleFormControlInput1">
+  </div>
+ 
+  <div class="form-group">
+    <h5>Add Event info</h5>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3"></textarea>
+  </div>
 
-        <div class="row">
-            <div class="input-field">
-                <h5>Add Description for your Events:</h5>
-                <textarea id="body" name="body">{{story.body}}</textarea>
-            </div>
-        </div>
-
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/events/dashboard" class="btn red">Cancel</a>
-        </div>
-    </form>
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/events/dashboard" class="btn btn-danger">Cancel</a>
+   </div>
+</form>
 </div>
