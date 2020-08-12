@@ -91,3 +91,12 @@
     background-position: 50% 50%;
  }
 
+/* Add Btn */
+.add-btn a{
+   text-decoration: none;
+   font-size: 4rem;
+   color: turquoise;
+   position: fixed;
+   margin-top: 785px;
+   margin-left: 1765px;
+}
