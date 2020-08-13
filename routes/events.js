@@ -11,8 +11,6 @@ eventsRouter.get('/add', (req, res, next) =>{
 eventsRouter.get('/edit', (req, res, next) =>{
     res.render('events/edit')
 });
-eventsRouter.get('/show', (req, res, next) =>{
-    res.render('events/show')
-});
+
 
 module.exports = eventsRouter;
