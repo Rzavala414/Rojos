@@ -6,9 +6,7 @@ router.use('/events', eventsRouter)
 router.use('/', userRouter);
 
 router.get('/', (req, res) => {
-    res.render('home', {
-        
-    });
+    res.render('home');
 })
 
 router.get('/login', (req, res) => {
