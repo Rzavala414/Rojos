@@ -1,19 +1,19 @@
 <div class="container">
-<h3>Add Event</h3>
-<form action='/events/add' method='POST'>
-  <div class="form-group">
-    <h5>Event Date</h5>
-    <input type="text" class="form-control" id="exampleFormControlInput1">
-  </div>
- 
-  <div class="form-group">
-    <h5>Event info</h5>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3"></textarea>
-  </div>
+    <h3>Add Event</h3>
+    <form action='/events' method='POST'>
+    <div class="form-group">
+        <h5>Event Date</h5>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+    </div>
+    
+    <div class="form-group">
+        <h5>Event info</h5>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3"></textarea>
+    </div>
 
-  <div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/events/dashboard" class="btn btn-danger">Cancel</a>
-   </div>
-</form>
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/events/dashboard" class="btn btn-danger">Cancel</a>
+    </div>
+    </form>
 </div>
