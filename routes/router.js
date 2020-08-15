@@ -1,12 +1,21 @@
 const router = require('express').Router();
 const userRouter = require('./auth');
-const eventsRouter = require('./events')
+const eventsRouter = require('./events');
 const passport = require('passport');
-router.use('/events', eventsRouter)
+const Event = require('../models/Event');
+router.use('/events', eventsRouter);
 router.use('/', userRouter);
 
-router.get('/', (req, res) => {
-    res.render('home');
+router.get('/', async(req, res) => {
+    const events = await Event.find()
+    console.log(events)
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.render('error/500');
+    }
+    res.render('home',{});
 })
 
 router.get('/login', (req, res) => {

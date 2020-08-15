@@ -2,11 +2,11 @@ const express = require('express');
 const router = require('./routes/router');
 const exphbs = require('express-handlebars');
 const passport = require('passport');
-const session = require('express-session')
+const session = require('express-session');
 const methodOverride = require('method-override');
 const connectDB = require('./config/database');
-const path = require('path')
-const morgan = require('morgan')
+const path = require('path');
+const morgan = require('morgan');
 const app = express();
 
 const PORT = process.env.PORT || 8080;
@@ -24,9 +24,16 @@ connectDB();
 //Default File is public
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Helper functions
+const {stripTags, truncate, editIcon} = require('./helpers/hbs');
 
 // Express Handlebars
 app.engine('.hbs', exphbs({
+    helpers: {
+    stripTags,
+    truncate,
+    editIcon
+    },
     extname: '.hbs',
     defaultLayout: 'main'
 }));
