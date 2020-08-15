@@ -7,15 +7,16 @@ router.use('/events', eventsRouter);
 router.use('/', userRouter);
 
 router.get('/', async(req, res) => {
-    const events = await Event.find()
-    console.log(events)
     try {
-        
+        const event = await Event.find().lean();
+        console.log(event)
+        res.render('home',{
+            event
+        });
     } catch (error) {
         console.log(error);
         res.render('error/500');
     }
-    res.render('home',{});
 })
 
 router.get('/login', (req, res) => {

@@ -14,7 +14,6 @@ eventsRouter.get('/add', (req, res, next) =>{
 // Creates an Event 
 eventsRouter.post('/',  async(req, res, next) =>{
     try {
-        
         await Event.create(req.body)
         res.redirect('/events/dashboard');
     } catch (error) {
