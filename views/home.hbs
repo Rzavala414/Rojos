@@ -8,8 +8,8 @@
 <section class="social">
     <div class="col">
         {{#each event}}
-            {{eventDate}}
-            {{body}}
+            {{stripTags eventDate}}
+            {{stripTags body}}
             <br>
         {{/each}}
     </div>
