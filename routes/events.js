@@ -28,7 +28,7 @@ eventsRouter.get('/edit/:id', (req, res, next) =>{
     res.render('events/edit')
 });
 
-// creates 
+// updates the event info
 eventsRouter.put('/:id', (req, res) =>{
 
 });
