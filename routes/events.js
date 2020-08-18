@@ -23,10 +23,14 @@ eventsRouter.post('/',  async(req, res, next) =>{
     
 });
 
-// Displays the Edit event page
-eventsRouter.get('/edit', (req, res, next) =>{
+// Displays the Edit event page with item to update
+eventsRouter.get('/edit/:id', (req, res, next) =>{
     res.render('events/edit')
 });
 
+// creates 
+eventsRouter.put('/:id', (req, res) =>{
+
+});
 
 module.exports = eventsRouter;
