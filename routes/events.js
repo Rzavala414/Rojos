@@ -22,8 +22,7 @@ eventsRouter.post('/',  async(req, res, next) =>{
     }
     
 });
-// yrdyfkjfjfjsaljffkj
-// fdjfjd
+
 // Displays the Edit event page with item to update
 eventsRouter.get('/edit/:id', (req, res, next) =>{
     res.render('events/edit')
