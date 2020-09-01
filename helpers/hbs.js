@@ -9,7 +9,7 @@ module.exports = {
         }
         return str
     },
-    // remove <> tags from textarea
+    // removes <> tags from user text input
     stripTags: function(input){
         return input.replace(/<(?:.|\n)*?>/gm, '')
     },
