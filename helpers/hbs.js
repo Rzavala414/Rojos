@@ -11,6 +11,8 @@ module.exports = {
     },
     // removes <> tags from user text inputs
     //
+    //
+    //
     stripTags: function(input){
         return input.replace(/<(?:.|\n)*?>/gm, '')
     },
