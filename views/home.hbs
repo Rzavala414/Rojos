@@ -8,9 +8,13 @@
 <section class="social">
     <div class="col">
         {{#each event}}
+         <div>
+             {{!-- add edit feature  --}}
+             {{!-- {{editIcon user ../user _id}} --}}
            <h3>{{stripTags eventDate}}</h3> 
             <h4>{{stripTags body}}</h4>
             <br>
+         </div>    
         {{/each}}
     </div>
 </section>

@@ -13,13 +13,13 @@ module.exports = {
     stripTags: function(input){
         return input.replace(/<(?:.|\n)*?>/gm, '')
     },
-    editIcon: function(storyUser, loggedUser, storyId, floating = true){
-        if(storyUser._id.toString() == loggedUser._id.toString()){
+    editIcon: function(eventUser, loggedUser, eventId, floating = true){
+        if(eventUser._id.toString() == loggedUser._id.toString()){
             if(floating) {
-                return `<a href="/stories/edit/${storyId}" class="btn-floating
+                return `<a href="/events/edit/${eventId}" class="btn-floating
                 halfway-fab blue"><i class="fas fa-edit "></i></a>`
             } else{
-                return `<a href="/stories/edit/${storyId}"><i class="fas fa-edit "></i></a>`
+                return `<a href="/events/edit/${eventId}"><i class="fas fa-edit "></i></a>`
             }
         } else{
             return ''
