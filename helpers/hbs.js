@@ -13,16 +13,9 @@ module.exports = {
     stripTags: function(input){
         return input.replace(/<(?:.|\n)*?>/gm, '')
     },
-    editIcon: function(eventUser, loggedUser, eventId, floating = true){
-        if(eventUser._id.toString() == loggedUser._id.toString()){
-            if(floating) {
+    // creates a route for each event to be able to edit their content
+    editIcon: function(eventId){
                 return `<a href="/events/edit/${eventId}" class="btn-floating
                 halfway-fab blue"><i class="fas fa-edit "></i></a>`
-            } else{
-                return `<a href="/events/edit/${eventId}"><i class="fas fa-edit "></i></a>`
-            }
-        } else{
-            return ''
-        }
     }
 }

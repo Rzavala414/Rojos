@@ -54,6 +54,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Set global var
+app.use(function (req, res, next){
+    res.locals.user = req.user || null
+    next();
+})
+
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
 
