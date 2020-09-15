@@ -48,8 +48,24 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
 });
 
 // updates the event info
-eventsRouter.put('/:id', (req, res) =>{
+eventsRouter.put('/:id', async(req, res) =>{
+    try {
+        let event = await Event.findById(req.params.id).lean()
 
+        if(!event){
+            // return res.render('error/404)
+        }else{
+            story = await Story.findOneAndUpdate({ _id: req.params.id}, req.body, {
+                new: true,
+                runValidators: true
+            });
+
+            res.redirect('/dashboard');
+        }
+    } catch (error) {
+        console.log(error);
+        return res.render('error/500');
+    }
 });
 
 module.exports = eventsRouter;
