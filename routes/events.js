@@ -50,7 +50,8 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
 // updates the event info
 eventsRouter.put('/:id', async(req, res) =>{
     try {
-      console.log("im the body " + req.body.id);
+      res.redirect('/')
+    
     } catch (error) {
         console.log(error);
         return res.render('error/500');
