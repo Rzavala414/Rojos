@@ -33,7 +33,7 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
       }).lean() 
 
       if(!event){
-        // return res.render('error/404');
+        return res.render('error/404');
       }else{
           //displays edit page of event and brings data back to frontend
           res.render('events/edit', {
@@ -43,25 +43,14 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
 
     } catch (error) {
         console.log(error)
-        // return res.render('error/500');
+        return res.render('error/500');
     }
 });
 
 // updates the event info
 eventsRouter.put('/:id', async(req, res) =>{
     try {
-        let event = await Event.findById(req.params.id).lean()
-
-        if(!event){
-            // return res.render('error/404)
-        }else{
-            story = await Story.findOneAndUpdate({ _id: req.params.id}, req.body, {
-                new: true,
-                runValidators: true
-            });
-
-            res.redirect('/dashboard');
-        }
+      console.log("im the body " + req.body.id);
     } catch (error) {
         console.log(error);
         return res.render('error/500');
