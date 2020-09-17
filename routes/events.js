@@ -1,5 +1,6 @@
 const eventsRouter = require('express').Router();
 const Event = require('../models/Event');
+const { findOneAndUpdate } = require('../models/Event');
 
 // Show users dashboard
 eventsRouter.get('/dashboard', (req, res, next) =>{
@@ -47,15 +48,33 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
     }
 });
 
-// updates the event info
+// @desc Updates event with matching id
+// @route PUT /events/edit/:id
 eventsRouter.put('/:id', async(req, res) =>{
     try {
-      res.redirect('/')
-    
+        let event = await Event.findById(req.params.id).lean();
+        console.log(event)
+        
+        if(!event){
+            res.render('error/404');
+        }else{
+            event = await Event.findOneAndUpdate({_id: req.params.id}, req.body, {
+                new: true,
+                runValidators: true
+            })
+
+            res.redirect('/')
+        }
     } catch (error) {
         console.log(error);
         return res.render('error/500');
     }
+});
+
+// @desc Deletes the id 
+// @route Delete /events/edit/:id
+eventsRouter.delete('/:id', async(req, res, next) => {
+
 });
 
 module.exports = eventsRouter;

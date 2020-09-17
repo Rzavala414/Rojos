@@ -9,7 +9,6 @@ router.use('/', userRouter);
 router.get('/', async(req, res) => {
     try {
         const event = await Event.find().lean();
-        console.log(event)
         res.render('home',{
             event
         });
