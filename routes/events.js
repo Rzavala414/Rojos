@@ -1,11 +1,6 @@
 const eventsRouter = require('express').Router();
 const Event = require('../models/Event');
-const { findOneAndUpdate } = require('../models/Event');
-
-// Show users dashboard
-eventsRouter.get('/dashboard', (req, res, next) =>{
-    res.render('events/dashboard')
-});
+const { findOneAndUpdate, findOneAndDelete } = require('../models/Event');
 
 // Displays the add event page
 eventsRouter.get('/add', (req, res, next) =>{
@@ -16,7 +11,7 @@ eventsRouter.get('/add', (req, res, next) =>{
 eventsRouter.post('/',  async(req, res, next) =>{
     try {
         await Event.create(req.body)
-        res.redirect('/events/dashboard');
+        res.redirect('/');
     } catch (error) {
         console.log(error)
         res.render('error/500')
@@ -53,7 +48,6 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
 eventsRouter.put('/:id', async(req, res) =>{
     try {
         let event = await Event.findById(req.params.id).lean();
-        console.log(event)
         
         if(!event){
             res.render('error/404');
@@ -72,8 +66,21 @@ eventsRouter.put('/:id', async(req, res) =>{
 });
 
 // @desc Deletes the id 
-// @route Delete /events/edit/:id
+// @route Delete /events/:id
 eventsRouter.delete('/:id', async(req, res, next) => {
+    try {
+        let event = await Event.findById({_id: req.params.id}).lean();
+
+        if(!event){
+            res.render('error/404');
+        }else{
+            event = await Event.findByIdAndDelete({_id: req.params.id}).lean();
+            res.redirect('/')
+        }
+    } catch (error) {
+        console.log(error)
+        res.render('error/500');
+    }
 
 });
 
