@@ -6,6 +6,9 @@ const Event = require('../models/Event');
 router.use('/events', eventsRouter);
 router.use('/', userRouter);
 
+
+// @desc Displays the landing page
+// @route GET /
 router.get('/', async(req, res) => {
     try {
         const event = await Event.find().lean();
@@ -22,7 +25,8 @@ router.get('/login', (req, res) => {
     res.render('login');
 })
 
-//Login Handle
+// @desc Displays login page and authenticates them
+// @route GET /login
 router.post('/login', (req, res, next) => {
     console.log(req.body)
     passport.authenticate('local', {

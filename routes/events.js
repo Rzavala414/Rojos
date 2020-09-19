@@ -1,9 +1,9 @@
 const eventsRouter = require('express').Router();
 const Event = require('../models/Event');
-const { findOneAndUpdate, findOneAndDelete } = require('../models/Event');
+const {ensureAuth, ensureGuest} = require('../middleware/auth');
 
 // Displays the add event page
-eventsRouter.get('/add', (req, res, next) =>{
+eventsRouter.get('/add', ensureAuth, (req, res, next) =>{
     res.render('events/add')
 });
 
@@ -21,7 +21,7 @@ eventsRouter.post('/',  async(req, res, next) =>{
   
 // @desc Displays the Edit event page with item to update
 // @route GET /events/edit/:id
-eventsRouter.get('/edit/:id', async (req, res, next) =>{
+eventsRouter.get('/edit/:id', ensureAuth, async (req, res, next) =>{
     try {
         // finds an event with an id that matches the request
       const event = await Event.findOne({
@@ -45,7 +45,7 @@ eventsRouter.get('/edit/:id', async (req, res, next) =>{
 
 // @desc Updates event with matching id
 // @route PUT /events/edit/:id
-eventsRouter.put('/:id', async(req, res) =>{
+eventsRouter.put('/:id', ensureAuth, async(req, res) =>{
     try {
         let event = await Event.findById(req.params.id).lean();
         
@@ -67,7 +67,7 @@ eventsRouter.put('/:id', async(req, res) =>{
 
 // @desc Deletes the id 
 // @route Delete /events/:id
-eventsRouter.delete('/:id', async(req, res, next) => {
+eventsRouter.delete('/:id', ensureAuth, async(req, res, next) => {
     try {
         let event = await Event.findById({_id: req.params.id}).lean();
 
