@@ -2,7 +2,9 @@ const express = require('express');
 const router = require('./routes/router');
 const exphbs = require('express-handlebars');
 const passport = require('passport');
+const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
 const methodOverride = require('method-override');
 const connectDB = require('./config/database');
 const path = require('path');
@@ -14,7 +16,6 @@ const PORT = process.env.PORT || 8080;
 //Passport config
 require('./config/passport')(passport);
 
-
 //Enable dotenv to config file
 require('dotenv').config({ path: './config/keys.env' });
 
@@ -25,14 +26,15 @@ connectDB();
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Helper functions
-const {stripTags, truncate, editIcon} = require('./helpers/hbs');
+const {stripTags, truncate, editIcon, displayEdit} = require('./helpers/hbs');
 
 // Express Handlebars
 app.engine('.hbs', exphbs({
     helpers: {
     stripTags,
     truncate,
-    editIcon
+    editIcon,
+    displayEdit
     },
     extname: '.hbs',
     defaultLayout: 'main'
@@ -56,14 +58,19 @@ app.use(methodOverride(function (req, res) {
 app.use(session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+//Set global var
+app.use(function (req, res, next){
+  res.locals.user = req.user || null;
+  next();
+})
 
 
 app.use(morgan('dev'));
