@@ -19,9 +19,9 @@ module.exports = {
                 halfway-fab blue"><i class="fas fa-edit "></i></a>`
     },
     displayEdit: function(eventUser, loggedUser, eventId, floating = true){
-        console.log('User INFO', eventUser)
+        // console.log('User INFO', eventUser)
         console.log('logged User', loggedUser)
-        console.log('event Id', eventId)
+        // console.log('event Id', eventId)
 
         if(eventUser._id.toString() == loggedUser._id.toString()){
             if(floating){

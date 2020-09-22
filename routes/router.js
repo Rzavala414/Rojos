@@ -15,7 +15,7 @@ router.get('/', async(req, res) => {
         .populate('user')
         .lean()
 
-        console.log('home event:', event);
+      
 
         res.render('home',{
             event: event
@@ -45,7 +45,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     console.log('logout Successful')
     req.logout();
-    res.redirect('/');
+    res.redirect('/')
 });
 
 module.exports = router;
