@@ -17,5 +17,27 @@ module.exports = {
     editIcon: function(eventId){
                 return `<a href="/events/edit/${eventId}" class="btn-floating
                 halfway-fab blue"><i class="fas fa-edit "></i></a>`
+    },
+    displayEdit: function(eventUser, loggedUser, eventId, floating = true){
+        console.log('User INFO', eventUser)
+        console.log('logged User', loggedUser)
+        console.log('event Id', eventId)
+
+        if(eventUser._id.toString() == loggedUser._id.toString()){
+            if(floating){
+                return `<a href="/events/edit/${eventId}" class="btn-floating
+                halfway-fab blue">
+                    <i class="fas fa-edit "></i>
+                </a>`;
+            } else{
+                return  `<a href="/events/edit/${eventId}">
+                    <i class="fas fa-edit "></i>
+                </a>`
+            }
+        } else{
+            return ''
+        }
+      
+        
     }
 }

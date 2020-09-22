@@ -10,6 +10,9 @@ eventsRouter.get('/add', ensureAuth, (req, res, next) =>{
 // Creates an Event 
 eventsRouter.post('/',  async(req, res, next) =>{
     try {
+       
+        req.body.user = req.user.id
+        console.log('post for event:', req.body)
         await Event.create(req.body)
         res.redirect('/');
     } catch (error) {

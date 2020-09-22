@@ -11,15 +11,21 @@ router.use('/', userRouter);
 // @route GET /
 router.get('/', async(req, res) => {
     try {
-        const event = await Event.find().lean();
+        const event = await Event.find()
+        .populate('user')
+        .lean()
+
+        console.log('home event:', event);
+
         res.render('home',{
-            event
+            event: event
         });
+
     } catch (error) {
         console.log(error);
         res.render('error/500');
     }
-})
+});
 
 router.get('/login', (req, res) => {
     res.render('login');
@@ -28,12 +34,18 @@ router.get('/login', (req, res) => {
 // @desc Displays login page and authenticates them
 // @route GET /login
 router.post('/login', (req, res, next) => {
-    console.log(req.body)
+    console.log('login successful')
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/login'
     })(req, res, next);
 });
 
+// logout user
+router.get('/logout', (req, res) => {
+    console.log('logout Successful')
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router;

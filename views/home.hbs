@@ -10,7 +10,9 @@
         {{#each event}}
          <div>
              {{!-- add edit feature  --}}
-             {{{editIcon _id}}}
+             {{!-- {{{editIcon _id}}} --}}
+             {{!-- displayEdit helper function takes in data to parse --}}
+             {{{displayEdit user._id ../user _id}}}
              <form action="/events/{{_id}}" method="POST" id="delete-from">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="btn red">
@@ -30,8 +32,7 @@
     
 </figure>
 
-<!-- About Info Section -->
-<section class="about-info">
+<!-- About Info Section --><section class="about-info">
 
 </section>
 
