@@ -6,25 +6,31 @@
 
 <!-- Social Media Icons links for events -->
 <section class="social">
+    {{#if user}}
     <div class="col">
         {{#each event}}
          <div>
-             {{!-- add edit feature  --}}
-             {{!-- {{{editIcon _id}}} --}}
-             {{!-- displayEdit helper function takes in data to parse --}}
-             {{{displayEdit user._id ../user _id}}}
-             <form action="/events/{{_id}}" method="POST" id="delete-from">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" class="btn red">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </form>
+             {{!-- editIcon helper function takes in data to parse --}}
+             {{{editIcon user._id ../user _id}}}
+             {{!-- trashIcon helper function takes in data to parse --}}
+             {{{trashIcon user._id ../user _id}}}
+           <h3>{{stripTags eventDate}}</h3> 
+            <h4>{{stripTags body}}</h4>
+            <br>
+         </div> 
+        {{/each}}
+            {{> _add_btn}}
+
+    {{else}}
+          {{#each event}}
+         <div>
            <h3>{{stripTags eventDate}}</h3> 
             <h4>{{stripTags body}}</h4>
             <br>
          </div>    
-        {{/each}}
-    </div>
+        {{/each}}  
+     
+    {{/if}}
 </section>
 
 <!-- Pic of Quality ingredients Stock image Only -->

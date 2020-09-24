@@ -26,7 +26,7 @@ connectDB();
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Helper functions
-const {stripTags, truncate, editIcon, displayEdit} = require('./helpers/hbs');
+const {stripTags, truncate, editIcon, trashIcon} = require('./helpers/hbs');
 
 // Express Handlebars
 app.engine('.hbs', exphbs({
@@ -34,7 +34,7 @@ app.engine('.hbs', exphbs({
     stripTags,
     truncate,
     editIcon,
-    displayEdit
+    trashIcon
     },
     extname: '.hbs',
     defaultLayout: 'main'

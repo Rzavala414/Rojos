@@ -13,16 +13,7 @@ module.exports = {
     stripTags: function(input){
         return input.replace(/<(?:.|\n)*?>/gm, '')
     },
-    // creates a route for each event to be able to edit their content
-    editIcon: function(eventId){
-                return `<a href="/events/edit/${eventId}" class="btn-floating
-                halfway-fab blue"><i class="fas fa-edit "></i></a>`
-    },
-    displayEdit: function(eventUser, loggedUser, eventId, floating = true){
-        console.log('User INFO', eventUser)
-        console.log('logged User', loggedUser)
-        console.log('event Id', eventId)
-
+    editIcon: function(eventUser, loggedUser, eventId, floating = true){
         if(eventUser._id.toString() == loggedUser._id.toString()){
             if(floating){
                 return `<a href="/events/edit/${eventId}" class="btn-floating
@@ -37,7 +28,18 @@ module.exports = {
         } else{
             return ''
         }
-      
-        
+         
+    },
+    trashIcon: function(eventUser, loggedUser, eventId){
+        if(eventUser._id.toString() == loggedUser._id.toString()){
+                return `<form action="/events/${eventId}" method="POST" id="delete-from">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button type="submit" class="btn red">
+                            <i class="fas fa-trash"></i>
+                          </button>
+                        </form>`;
+        } else{
+            return ''
+        }
     }
 }
