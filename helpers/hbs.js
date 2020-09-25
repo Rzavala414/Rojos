@@ -18,11 +18,11 @@ module.exports = {
             if(floating){
                 return `<a href="/events/edit/${eventId}" class="btn-floating
                 halfway-fab blue">
-                    <i class="fas fa-edit "></i>
+                    <i class="fas fa-edit edit-icon"></i>
                 </a>`;
             } else{
                 return  `<a href="/events/edit/${eventId}">
-                    <i class="fas fa-edit "></i>
+                    <i class="fas fa-edit trash-icon "></i>
                 </a>`
             }
         } else{
@@ -32,9 +32,9 @@ module.exports = {
     },
     trashIcon: function(eventUser, loggedUser, eventId){
         if(eventUser._id.toString() == loggedUser._id.toString()){
-                return `<form action="/events/${eventId}" method="POST" id="delete-from">
+                return `<form action="/events/${eventId}" method="POST" id="delete-from" class="trash-icon">
                           <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class="btn red">
+                          <button type="submit" class="btn ">
                             <i class="fas fa-trash"></i>
                           </button>
                         </form>`;

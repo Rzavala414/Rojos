@@ -1,3 +1,7 @@
+ footer{
+   background: black;
+ }
+
  .logo{
    position: absolute;
     top: -4rem;
@@ -7,19 +11,14 @@
 }
 
  .opening-info{
-    width: 100%;
-    height: 25rem;
-    background-image: url("https://img1.wsimg.com/isteam/ip/5f349572-d61c-4c59-b128-a7a4aecd1dd9/frontpage.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+  width: 100%;
+  height: 40rem;
  }
 
  .social{
     width: 100%;
-    height: 25rem;
-    background: rgb(151, 27, 5);
-    background-size: cover;
+    background: rgb(49, 5, 151);
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
  }
@@ -27,18 +26,16 @@
  .info-pic{
     width: 100%;
     height: 25rem;
-    background-image: url("https://images.squarespace-cdn.com/content/v1/57879a6cbebafb879f256735/1579721476536-V0ZXZDAJ7P1H939N5FGF/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/header2.jpg?format=2500w");
+    background-color: rgb(255, 1, 35);
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: 50% 50%;
  }
 
  .about-info{
     width: 100%;
     height: 25rem;
-    background-image: url("https://restaurantden.com/wp-content/uploads/2017/09/stock-free-images.jpg");
+    background-color: orange;
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: 50% 50%;
  }
 
@@ -47,4 +44,16 @@
    text-decoration: none;
    font-size: 4rem;
    color: turquoise;
+}
+
+
+
+video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.trash-icon{
+   display: inline-block;
 }
