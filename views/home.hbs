@@ -1,48 +1,69 @@
 
 <!-- Opening Info -->
-<section class="opening-info">
-    
-</section>
+<div class="opening-info">
+    <video>
+        <source src="/joji.mp4" type="video/mp4">
+    </video>
+</div>
 
 <!-- Social Media Icons links for events -->
-<section class="social">
+<div class="social">
     {{#if user}}
-    <div class="col">
-        {{#each event}}
-         <div>
-             {{!-- editIcon helper function takes in data to parse --}}
-             {{{editIcon user._id ../user _id}}}
-             {{!-- trashIcon helper function takes in data to parse --}}
-             {{{trashIcon user._id ../user _id}}}
-           <h3>{{stripTags eventDate}}</h3> 
-            <h4>{{stripTags body}}</h4>
-            <br>
-         </div> 
+        
+            {{#each event}}
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        {{stripTags eventDate}}
+                        {{{editIcon user._id ../user _id}}}
+                        {{{trashIcon user._id ../user _id}}}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p>{{stripTags body}}</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         {{/each}}
             {{> _add_btn}}
 
     {{else}}
           {{#each event}}
-         <div>
-           <h3>{{stripTags eventDate}}</h3> 
-            <h4>{{stripTags body}}</h4>
-            <br>
-         </div>    
+            <div class="card">
+                <div class="card-header">
+                    {{stripTags eventDate}}
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                    <p>{{stripTags body}}</p>
+                    </blockquote>
+                </div>
+            </div>  
         {{/each}}  
      
     {{/if}}
-</section>
+</div>
 
 <!-- Pic of Quality ingredients Stock image Only -->
-<figure class="info-pic">
+<div class="info-pic">
     
-</figure>
+</div>
 
-<!-- About Info Section --><section class="about-info">
+<!-- About Info Section -->
+<section class="about-info">
 
 </section>
 
-   
-   
+<footer></footer>
+      <nav class="navbar navbar-dark bg-dark">
+        <ul class="nav justify-content-end">
+       
+        <li class="nav-item">
+            <a class="nav-link active" href="/logout">Logout</a>
+        </li>
+        </ul>
+    </nav>
+</footer>
 
 
