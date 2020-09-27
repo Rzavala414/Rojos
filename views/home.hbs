@@ -11,16 +11,18 @@
     {{#if user}}
         
             {{#each event}}
-            <div class="card">
-                <div class="card-header">
-                    {{stripTags eventDate}}
-                    {{{editIcon user._id ../user _id}}}
-                    {{{trashIcon user._id ../user _id}}}
-                </div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                    <p>{{stripTags body}}</p>
-                    </blockquote>
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        {{stripTags eventDate}}
+                        {{{editIcon user._id ../user _id}}}
+                        {{{trashIcon user._id ../user _id}}}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p>{{stripTags body}}</p>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         {{/each}}

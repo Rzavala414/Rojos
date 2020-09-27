@@ -12,7 +12,7 @@
 
  .opening-info{
   width: 100%;
-  height: 40rem;
+  height: 37rem;
  }
 
  .social{
@@ -56,4 +56,15 @@ video{
 
 .trash-icon{
    display: inline-block;
+}
+
+.trash{
+   padding: 0;
+   margin-bottom: 2px;
+}
+
+.card{
+  
+  /* jhjhkj */
+   margin: 2rem, auto;
 }

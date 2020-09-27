@@ -34,7 +34,7 @@ module.exports = {
         if(eventUser._id.toString() == loggedUser._id.toString()){
                 return `<form action="/events/${eventId}" method="POST" id="delete-from" class="trash-icon">
                           <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class="btn ">
+                          <button type="submit" class="btn trash" style="padding: 0;">
                             <i class="fas fa-trash"></i>
                           </button>
                         </form>`;
